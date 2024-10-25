@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthGuard } from '../guards/auth.guard';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 
@@ -12,12 +11,12 @@ export class MenuPage implements OnInit {
   username: string = '';
   imagen: string = '';
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     const { usuario, urlImagen } = this.obtenerUsuario();
-    this.username = usuario
-    this.imagen = urlImagen
+    this.username = usuario;
+    this.imagen = urlImagen;
   }
 
   logout() {
@@ -30,4 +29,10 @@ export class MenuPage implements OnInit {
     return usuario ? JSON.parse(usuario) : {};
   }
 
+  // Método para actualizar las variables manualmente y forzar la detección de cambios
+  actualizarUsuario(usuario: any) {
+    this.username = usuario.usuario;
+    this.imagen = usuario.urlImagen;
+    this.cdr.detectChanges(); // Forzar detección de cambios
+  }
 }
