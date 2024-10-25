@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-productos',
@@ -27,6 +28,7 @@ export class HomePage {
   Agregar() {
     if (this.nombre && this.descripcion && this.cantidad && this.precioCosto && this.precioVenta && this.url) {
       const nuevoProducto = {
+        id: uuidv4(),
         nombre: this.nombre,
         descripcion: this.descripcion,
         cantidad: this.cantidad,

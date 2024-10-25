@@ -1,3 +1,27 @@
+<!-- Menú lateral en el componente de nivel superior -->
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu content-id="main-content" side="start">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menú</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-list>
+        <ion-item [routerLink]="['/productos']">Productos</ion-item>
+        <ion-item [routerLink]="['/clientes']">Clientes</ion-item>
+        <ion-item [routerLink]="['/menu']">Menú</ion-item>
+        <ion-buttons slot="end">
+          <ion-button color="danger" (click)="logout()">
+            <ion-icon name="log-out-outline"></ion-icon>
+            Cerrar Sesión
+          </ion-button>
+        </ion-buttons>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <!-- Router outlet para cargar páginas dinámicamente -->
+  <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-app>

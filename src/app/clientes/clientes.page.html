@@ -1,5 +1,9 @@
+<!-- Header principal con botón de menú -->
 <ion-header [translucent]="true">
   <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button> <!-- Este botón abrirá el menú lateral -->
+    </ion-buttons>
     <ion-title>Clientes</ion-title>
     <ion-buttons slot="end">
       <ion-button color="danger" (click)="logout()">
@@ -10,18 +14,21 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" padding="true">
+<!-- Contenido principal -->
+<ion-content [fullscreen]="true" padding="true" id="main-content">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Clientes</ion-title>
     </ion-toolbar>
   </ion-header>
+  
   <ion-button expand="block" color="primary" [routerLink]="['/productos']">
     Ir a Productos
   </ion-button>
 
   <ion-searchbar placeholder="Buscar un producto" (ionInput)="Buscar()" [(ngModel)]="busqueda"></ion-searchbar>
 
+  <!-- Formulario de clientes -->
   <ion-item>
     <ion-label position="stacked">Nombre</ion-label>
     <ion-input [(ngModel)]="nombre"></ion-input>
@@ -31,7 +38,7 @@
     <ion-input [(ngModel)]="direccion"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label position="stacked">Telefono</ion-label>
+    <ion-label position="stacked">Teléfono</ion-label>
     <ion-input [(ngModel)]="telefono" type="tel"></ion-input>
   </ion-item>
   <ion-item>
@@ -45,13 +52,14 @@
 
   <ion-button expand="block" color="primary" (click)="Agregar()">Guardar</ion-button>
 
+  <!-- Lista de clientes filtrados -->
   <ion-list>
     <ion-card *ngFor="let cliente of clientesFiltrados; let i = index">
-      <img alt='{{cliente.nombre}}' src={{cliente.url}} class="imagen"/>
+      <img alt="{{cliente.nombre}}" src="{{cliente.url}}" class="imagen"/>
       <ion-card-header>
         <ion-card-title>{{cliente.nombre}}</ion-card-title>
         <ion-card-subtitle>Dirección: {{cliente.direccion}}</ion-card-subtitle>
-        <ion-card-subtitle>Telefono: {{cliente.telefono}}</ion-card-subtitle>
+        <ion-card-subtitle>Teléfono: {{cliente.telefono}}</ion-card-subtitle>
         <ion-card-subtitle>Correo: {{cliente.correo}}</ion-card-subtitle>
       </ion-card-header>
       <ion-button color="warning" (click)="Editar(i)">Editar</ion-button>

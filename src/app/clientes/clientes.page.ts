@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-clientes',
@@ -27,6 +28,7 @@ export class ClientesPage {
   Agregar() {
     if (this.nombre && this.direccion && this.telefono && this.correo && this.url) {
       const nuevoCliente = {
+        id: uuidv4(),
         nombre: this.nombre,
         direccion: this.direccion,
         telefono: this.telefono,
@@ -61,6 +63,7 @@ export class ClientesPage {
 
   Editar(index: number) {
     const cliente = this.clientes[index];
+
     this.nombre = cliente.nombre;
     this.direccion = cliente.direccion;
     this.correo = cliente.correo;

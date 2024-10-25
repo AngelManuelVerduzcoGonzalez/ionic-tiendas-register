@@ -10,13 +10,15 @@ import { Router } from '@angular/router';
 export class MenuPage implements OnInit {
   username: string = '';
   imagen: string = '';
+  tienda: string = '';
 
   constructor(private authService: AuthService, private router: Router, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
-    const { usuario, urlImagen } = this.obtenerUsuario();
+    const { usuario, urlImagen, tienda } = this.obtenerUsuario();
     this.username = usuario;
     this.imagen = urlImagen;
+    this.tienda = tienda;
   }
 
   logout() {
@@ -33,6 +35,7 @@ export class MenuPage implements OnInit {
   actualizarUsuario(usuario: any) {
     this.username = usuario.usuario;
     this.imagen = usuario.urlImagen;
+    this.tienda = usuario.tienda
     this.cdr.detectChanges(); // Forzar detección de cambios
   }
 }

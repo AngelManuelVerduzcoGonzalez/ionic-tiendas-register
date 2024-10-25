@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
+import { v4 as uuidv4 } from 'uuid'
 
 @Component({
   selector: 'app-register-modal',
@@ -30,6 +31,7 @@ export class RegistroModalComponent {
 
       // Aquí puedes manejar el registro del usuario con los datos ingresados.
       const datosUsuario = {
+        id: uuidv4(),
         nombre: this.nombre,
         usuario: this.usuario,
         contrasena: this.contrasena,
