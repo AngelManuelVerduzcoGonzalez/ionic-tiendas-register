@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarModal()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">Nombre Completo</ion-label>
+    <ion-input [(ngModel)]="nombre" placeholder="Ingresa tu nombre"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Nombre de Usuario</ion-label>
+    <ion-input [(ngModel)]="usuario" placeholder="Ingresa un nombre de usuario"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Contraseña</ion-label>
+    <ion-input [(ngModel)]="contrasena" type="password" placeholder="Ingresa una contraseña"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Confirmar Contraseña</ion-label>
+    <ion-input [(ngModel)]="confirmarContrasena" type="password" placeholder="Confirma la contraseña"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Nombre de la Tienda</ion-label>
+    <ion-input [(ngModel)]="tienda" placeholder="Ingresa el nombre de la tienda"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">URL de la Imagen</ion-label>
+    <ion-input [(ngModel)]="urlImagen" placeholder="Ingresa una URL de imagen"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" color="primary" (click)="registrarUsuario()">Registrar</ion-button>
+</ion-content>

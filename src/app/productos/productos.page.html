@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-title>Productos</ion-title>
+      <ion-buttons slot="end">
+      <ion-button color="danger" (click)="logout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+        Cerrar Sesión
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" padding="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Productos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-button expand="block" color="primary" [routerLink]="['/clientes']">
+    Ir a Clientes
+  </ion-button>
+
+  <!-- Barra de búsqueda -->
+  <ion-searchbar placeholder="Buscar un producto" (ionInput)="Buscar()" [(ngModel)]="busqueda"></ion-searchbar>
+
+  <!-- Formulario de productos -->
+  <ion-item>
+    <ion-label position="stacked">Nombre</ion-label>
+    <ion-input [(ngModel)]="nombre"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Descripción</ion-label>
+    <ion-input [(ngModel)]="descripcion"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Cantidad</ion-label>
+    <ion-input [(ngModel)]="cantidad" type="number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Precio costo</ion-label>
+    <ion-input [(ngModel)]="precioCosto" type="number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Precio venta</ion-label>
+    <ion-input [(ngModel)]="precioVenta" type="number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">URL Imagen</ion-label>
+    <ion-input [(ngModel)]="url"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" color="primary" (click)="Agregar()">Guardar</ion-button>
+
+  <!-- Lista de productos filtrados -->
+  <ion-list>
+    <ion-card *ngFor="let producto of productosFiltrados; let i = index">
+      <img alt='{{producto.nombre}}' src="{{producto.url}}" class="imagen"/>
+      <ion-card-header>
+        <ion-card-title>{{producto.nombre}}</ion-card-title>
+        <ion-card-subtitle>{{producto.descripcion}}</ion-card-subtitle>
+        <ion-card-subtitle>Cantidad: {{producto.cantidad}}</ion-card-subtitle>
+        <ion-card-subtitle>Precio Costo: {{producto.precioCosto}}</ion-card-subtitle>
+        <ion-card-subtitle>Precio Venta: {{producto.precioVenta}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-button color="warning" (click)="Editar(i)">Editar</ion-button>
+      <ion-button color="danger" (click)="Eliminar(i)">Eliminar</ion-button>
+    </ion-card>
+  </ion-list>
+</ion-content>

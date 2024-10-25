@@ -1,0 +1,7 @@
+.imagen {
+  max-width: 350px;   /* Máximo ancho de la imagen */
+  max-height: 350px;  /* Máximo alto de la imagen */
+  object-fit: cover;  /* Recorta la imagen para llenar el área sin distorsionarla */
+  border-radius: 10px; /* Bordes redondeados para darle un mejor estilo */
+  display: block;     /* Asegura que se comporte como un bloque */
+}

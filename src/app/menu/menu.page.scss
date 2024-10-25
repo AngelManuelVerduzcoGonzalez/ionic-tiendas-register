@@ -1,0 +1,19 @@
+.welcome-content {
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    flex-direction: column;
+    text-align: center;
+    height: 100%; /* Cambia esto a 100vh para ocupar toda la altura de la vista */
+}
+
+.welcome-message {
+    padding: 20px;
+}
+
+.user-image {
+    width: 100px; /* Ajusta el tamaño de la imagen según sea necesario */
+    height: 100px;
+    border-radius: 50%; /* Para hacer la imagen circular */
+    object-fit: cover; /* Para mantener la relación de aspecto */
+}

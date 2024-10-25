@@ -1,0 +1,24 @@
+<ion-content padding>
+  <!-- Formulario de autenticación -->
+  <form (ngSubmit)="onLogin()">
+    <ion-item>
+      <ion-label position="stacked">Usuario</ion-label>
+      <ion-input [(ngModel)]="usuario" name="usuario" type="text" placeholder="Ingresa tu usuario" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Contraseña</ion-label>
+      <ion-input [(ngModel)]="contrasena" name="contrasena" type="password" placeholder="Ingresa tu contraseña" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label>Recordar sesión</ion-label>
+      <ion-checkbox [(ngModel)]="recordarSesion" name="recordarSesion" (ionChange)="toggleRecordarSesion()"></ion-checkbox>
+    </ion-item>
+
+    <!-- Cambia el evento a click -->
+    <ion-button expand="block" type="button" color="primary" (click)="onLogin()">Iniciar Sesión</ion-button>
+
+    <ion-button expand="block" color="secondary" (click)="abrirModalRegistro()">Registrarse</ion-button>
+  </form>
+</ion-content>

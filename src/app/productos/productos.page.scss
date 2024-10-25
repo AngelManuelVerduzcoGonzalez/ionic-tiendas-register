@@ -1,0 +1,35 @@
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+.imagen {
+  max-width: 350px;   /* Máximo ancho de la imagen */
+  max-height: 350px;  /* Máximo alto de la imagen */
+  object-fit: cover;  /* Recorta la imagen para llenar el área sin distorsionarla */
+  border-radius: 10px; /* Bordes redondeados para darle un mejor estilo */
+  display: block;     /* Asegura que se comporte como un bloque */
+}
